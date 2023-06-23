@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+
+<p class="govuk-body">Not logged in</p>
+
+<h1 class="govuk-heading-l">Reference Request</h1>
+<p class="govuk-body">We are undertaking pre-employment checks for</p>
+<p class="govuk-body">They have been successful in the position of and have
+nominated you as a referee.</p>
+<p class="govuk-body">To enable us to proceed with our checks, please complete the reference form below. We would appreciate it if you could complete the form within 48 hours to avoid any delay.</p>
+
+<p class="govuk-body">An unfavourable reply does not necessarily mean that the
+applicant won't be offered a job; your reference is very valuable to us and we will take it into consideration in the strictest confidence.</p>
+
+<form class="form" action="/country-answer" method="post">
+
+{{ govukRadios({
+  name: "country",
+  value: data['country'],
+  fieldset: {
+    legend: {
+      text: "Are you related to the applicant?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes"
+    },
+    {
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
+<p class="govuk-body">Please click submit once you've completed all mandatory fields</p>
+
+{{ govukButton({
+  text: "Submit"
+}) }}
+
+</form>
+
+
+
+{% endblock %}

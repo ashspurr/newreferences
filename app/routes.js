@@ -6,4 +6,14 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
+router.post('/country-answer', function(request, response) {
+
+    var country = request.session.data['country']
+    if (country == "Yes"){
+        response.redirect("/complete")
+    } else {
+        response.redirect("/page2")
+    }
+})
+
 // Add your routes here
