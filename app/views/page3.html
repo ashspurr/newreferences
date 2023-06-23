@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+
+<p class="govuk-body">Not logged in</p>
+
+<form class="form" action="/how-long-known" method="post">
+
+{{ govukRadios({
+  name: "country",
+  value: data['country'],
+  fieldset: {
+    legend: {
+      text: "How long have you known the applicant?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend"
+    }
+  },
+  items: [
+    {
+      value: "less than 3 years",
+      text: "less than 3 years"
+    },
+    {
+      value: "3+ years",
+      text: "3+ years"
+    }
+  ]
+}) }}
+<p class="govuk-body">Please click submit once you've completed all mandatory fields</p>
+
+{{ govukButton({
+  text: "Submit"
+}) }}
+
+</form>
+{% endblock %}

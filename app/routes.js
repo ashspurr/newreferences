@@ -16,4 +16,15 @@ router.post('/country-answer', function(request, response) {
     }
 })
 
+
+router.post('/how-long-known', function(request, response) {
+
+    var country = request.session.data['country']
+    if (country == "less than 3 years"){
+        response.redirect("/complete")
+    } else {
+        response.redirect("/page3")
+    }
+})
+
 // Add your routes here
