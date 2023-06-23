@@ -9,32 +9,29 @@
 
 <form class="form" action="/how-long-known" method="post">
 
-{{ govukRadios({
-  name: "country",
-  value: data['country'],
-  fieldset: {
-    legend: {
-      text: "How long have you known the applicant?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend"
-    }
-  },
-  items: [
-    {
-      value: "less than 3 years",
-      text: "less than 3 years"
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+
+  {{ govukInput({
+    label: {
+      text: "Your full name",
+      classes: "govuk-label--l",
+      isPageHeading: true
     },
-    {
-      value: "3+ years",
-      text: "3+ years"
-    }
-  ]
-}) }}
-<p class="govuk-body">Please click submit once you've completed all mandatory fields</p>
+    id: "event-name",
+    name: "event-name"
+  }) }}
 
-{{ govukButton({
-  text: "Submit"
-}) }}
+  {{ govukInput({
+    label: {
+      text: "Your UK telephone number",
+      classes: "govuk-label--l",
+      isPageHeading: true
+    },
+    hint: {
+      text: "Enter a telephone number like 01632 960 001, 07700 900 982 or +44 808 157 0192"
+    },
+    id: "event-name",
+    name: "event-name"
+  }) }}
 
-</form>
 {% endblock %}
