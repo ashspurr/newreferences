@@ -7,31 +7,30 @@
 
 <p class="govuk-body">Not logged in</p>
 
-<form class="form" action="/how-long-known" method="post">
+{% from "govuk/components/input/macro.njk" import govukInput %}
 
-  {% from "govuk/components/input/macro.njk" import govukInput %}
 
-  {{ govukInput({
-    label: {
-      text: "Your full name",
-      classes: "govuk-label--l",
-      isPageHeading: true
-    },
-    id: "event-name",
-    name: "event-name"
-  }) }}
 
-  {{ govukInput({
-    label: {
-      text: "Your UK telephone number",
-      classes: "govuk-label--l",
-      isPageHeading: true
-    },
-    hint: {
-      text: "Enter a telephone number like 01632 960 001, 07700 900 982 or +44 808 157 0192"
-    },
-    id: "event-name",
-    name: "event-name"
-  }) }}
+{{ govukInput({
+  label: {
+    text: "Your full name"
+  },
+  classes: "govuk-!-width-one-third",
+  id: "one-third",
+  name: "one-half"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Your UK telephone number"
+  },
+  classes: "govuk-!-width-one-third",
+  id: "one-third",
+  hint: {
+    text: "Enter a telephone number like 01632 960 001, 07700 900 982 or +44 808 157 0192"
+  },
+  name: "one-third"
+}) }}
+
 
 {% endblock %}
