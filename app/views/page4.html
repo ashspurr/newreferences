@@ -61,4 +61,74 @@
 }) }}
 
 
+{{ govukRadios({
+  name: "contact",
+  fieldset: {
+    legend: {
+      text: "Are you aware of the applicant working for any other employees or being self-employed during this time?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select one option."
+  },
+  items: [
+
+    {
+      value: "yes",
+      text: "yes",
+      conditional: {
+        html: phoneHtml
+      }
+    },
+    {
+      value: "no",
+      text: "no"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Submit",
+  href: "/page5"
+
+}) }}
+
+
+{{ govukRadios({
+  name: "contact",
+  fieldset: {
+    legend: {
+      text: "To your knowledge, is there anything about the applicant’s skills, conduct or reliability that would make them unsuitable for a job in the Civil Service?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select one option."
+  },
+  items: [
+
+    {
+      value: "yes",
+      text: "yes",
+      conditional: {
+        html: phoneHtml
+      }
+    },
+    {
+      value: "no",
+      text: "no"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Submit",
+  href: "/page5"
+
+}) }}
+
+
 {% endblock %}

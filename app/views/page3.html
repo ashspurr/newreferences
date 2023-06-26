@@ -32,10 +32,144 @@
   name: "one-third"
 }) }}
 
-{{ govukButton({
-  text: "Submit",
-  href: "/page4"
 
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+
+
+{% set question1Html %}
+{{ govukTextarea({
+  id: "yes",
+  name: "yes",
+  type: "tel",
+  autocomplete: "tel",
+  label: {
+    text: "Provide details of the applicant’s work with you during the last 3 years"
+  }
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  name: "question1",
+  fieldset: {
+    legend: {
+      text: "Has the applicant worked with you during the last 3 years?",
+      isPageHeading: true
+    }
+  },
+
+  items: [
+
+    {
+      value: "yes",
+      text: "yes",
+      conditional: {
+        html: question1Html
+      }
+    },
+    {
+      value: "no",
+      text: "no"
+    }
+  ]
 }) }}
 
+
+{% set question2Html %}
+{{ govukTextarea({
+  id: "yes",
+  name: "yes",
+  type: "tel",
+  autocomplete: "tel",
+  label: {
+    text: "Provide details of the applicant's work for other employers or their self-employment during the last 3 years, if possible."
+  }
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  name: "question2",
+  fieldset: {
+    legend: {
+      text: "Are you aware of the applicant working for any other employees or being self-employed during this time?",
+      isPageHeading: true
+    }
+  },
+ 
+  items: [
+
+    {
+      value: "yes",
+      text: "yes",
+      conditional: {
+        html: question2Html
+      }
+    },
+    {
+      value: "no",
+      text: "no"
+    }
+  ]
+}) }}
+
+
+{% set question3Html %}
+{{ govukTextarea({
+  id: "yes",
+  name: "yes",
+  type: "tel",
+  autocomplete: "tel",
+  label: {
+    text: "Provide details of the applicant’s skills conduct or reliability"
+  }
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  name: "question3",
+  fieldset: {
+    legend: {
+      text: "To your knowledge, is there anything about the applicant’s skills, conduct or reliability that would make them unsuitable for a job in the Civil Service?",
+      isPageHeading: true
+    }
+  },
+
+  items: [
+
+    {
+      value: "yes",
+      text: "yes",
+      conditional: {
+        html: question3Html
+      }
+    },
+    {
+      value: "no",
+      text: "no"
+    }
+  ]
+}) }}
+
+
+
+
+
+
+
+<p class="govuk-body">Please click submit once you’ve completed all mandatory fields</p>
+
+
+
+
+
+
+
+{{ govukButton({
+  text: "Submit",
+  href: "/complete"
+
+}) }}
 {% endblock %}
